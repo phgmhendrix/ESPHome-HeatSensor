@@ -1,0 +1,42 @@
+esphome:
+  name: testnode
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+web_server:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  password: ""
+
+wifi:
+  ssid: "Harribo"
+  password: "XXXXXXXXXXXXXXX"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Testnode Fallback Hotspot"
+    password: "gWF3iNCirvLr"
+
+captive_portal:
+
+# DS18B20 Temperature Sensor
+dallas:
+  - pin: GPIO2
+    update_interval: 5s
+  
+sensor:
+  - platform: dallas
+    address: 0xe80b23578326d628
+    name: "Aanvoer"
+
+  - platform: dallas
+    address: 0xc60b23576c044728
+    name: "Afvoer"
